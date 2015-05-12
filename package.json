@@ -1,0 +1,35 @@
+{
+  "name": "todo-mocha",
+  "version": "0.0.1",
+  "description": "",
+  "main": "js/app.js",
+  "scripts": {
+    "start": "watchify -o js/bundle.js -v -d js/app.js",
+    "build": "browserify . -t [envify --NODE_ENV production] | uglifyjs -cm > js/bundle.min.js",
+    "test": "./node_modules/.bin/mocha --compilers js:babel/register --recursive"
+  },
+  "author": "Ben Stokoe",
+  "license": "ISC",
+  "browserify": {
+    "transform": [
+      "babelify",
+      "envify"
+    ]
+  },
+  "devDependencies": {
+    "babel": "^5.2.17",
+    "babel-jest": "^5.2.0",
+    "babelify": "^6.0.2",
+    "browserify": "^9.0.8",
+    "envify": "^3.4.0",
+    "jsdom": "^3.1.2",
+    "mocha": "^2.2.4",
+    "reactify": "^1.1.0",
+    "watchify": "^3.1.2"
+  },
+  "dependencies": {
+    "classnames": "^1.2.2",
+    "object-assign": "^2.0.0",
+    "react": "^0.13.2"
+  }
+}
